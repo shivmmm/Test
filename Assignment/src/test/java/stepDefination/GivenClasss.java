@@ -18,6 +18,7 @@ public class GivenClasss extends BaseClass {
 	public void givenAPI()
 	{
 		//Putting base URI value in requestSpecification object
+		scn.write("URI under test -"+bundle.getString("uri"));
 		reqSpec=getURI(bundle.getString("uri"));
 		
 		

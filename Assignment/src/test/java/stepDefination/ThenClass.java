@@ -21,7 +21,6 @@ public class ThenClass extends BaseClass {
 	
 	LocalDate dt;
 	
-
 	
 	
 	
@@ -30,7 +29,7 @@ public class ThenClass extends BaseClass {
 	public void getStatusCode(Integer expected)
 	{
 		//Assertion of status code
-		
+		scn.write("Extracting status code to validate");
 		response.then().assertThat().statusCode(expected);
 		
 		
@@ -38,7 +37,7 @@ public class ThenClass extends BaseClass {
 	@Then("API should return the current date rates")
 	public void validateDate() throws ParseException
 	{
-		
+		scn.write("Verifying current date data should return even if the endpoint is of future date");
 		//Assertion of status code
 		dt=	locatDate();
 		String date=checkWeekends(dt);
@@ -50,7 +49,7 @@ public class ThenClass extends BaseClass {
 	@And("Error message should displayed as {string}")
 	public void validateErrorMessage(String expectedError)
 	{
-		
+		scn.write("Verifying error message for incorrect endpoint");
 		response.then().assertThat().body("error",equalTo(expectedError));
 	}
 	
@@ -62,7 +61,7 @@ public class ThenClass extends BaseClass {
 		/*JsonPath json=response.jsonPath();
 		 
 		System.out.println(json.get("base"));*/
-		
+		scn.write("Verifying base value");
 		response.then().assertThat().body("base",equalTo(expectedBase));
 		
 		

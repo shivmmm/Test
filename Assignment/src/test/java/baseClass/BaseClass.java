@@ -11,9 +11,7 @@ import java.time.ZonedDateTime;
 import java.util.ResourceBundle;
 
 import cucumber.api.Scenario;
-
-
-
+import cucumber.api.java.Before;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
@@ -24,12 +22,14 @@ public class BaseClass {
     //use for headers,body,parameters
 	static protected RequestSpecification reqSpec=null;
 	static protected Response response=null;
+	static protected Scenario scn=null;
 	
-
+	
 	protected ResourceBundle bundle=ResourceBundle.getBundle("test");
 
 
-
+	
+	
 	public RequestSpecification getURI(String baseURI)
 	{
 		return given().baseUri(baseURI);
@@ -47,13 +47,12 @@ public class BaseClass {
 		if (date.getDayOfWeek() == DayOfWeek.SATURDAY )
 		{
 			result=	date.minusDays(1);
-
 		}
 
-		else if(date.getDayOfWeek() == DayOfWeek.SUNDAY) {
+		else if(
+				date.getDayOfWeek() == DayOfWeek.SUNDAY)
+		{
 			result=	date.minusDays(2);
-
-
 		}
 
 		return result.toString();
