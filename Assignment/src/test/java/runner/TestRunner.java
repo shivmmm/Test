@@ -9,12 +9,11 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features="src/test/java/stepDefination",
+		features="src/main/java/featureFiles",
 				glue="stepDefination",
-				tags= {"@Accpetance"},
 		plugin = {"pretty",
 				"html:target/html/",
-				"json:target/json/file.json"}
+				}
 		)
 public class TestRunner {
 

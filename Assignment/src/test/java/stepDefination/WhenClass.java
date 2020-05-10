@@ -14,11 +14,9 @@ import static org.hamcrest.Matchers.*;
 
 import org.json.JSONObject;
 
-public class ValidateRequest2 extends BaseClass {
+public class WhenClass extends BaseClass {
 	
 	
-	
-	String uri;
 	
 	
 	
@@ -26,9 +24,10 @@ public class ValidateRequest2 extends BaseClass {
 	@When("Hit the API with end point as {string}")
 	public void hitAPI(String endPoint)
 	{
+		
 		//Getting reponse throgh get method
 		response=reqSpec.get(endPoint);
-		System.out.println(response.asString());
+		
 		
 	}
 	
