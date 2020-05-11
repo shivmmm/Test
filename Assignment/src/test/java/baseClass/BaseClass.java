@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.ResourceBundle;
 
@@ -40,7 +41,8 @@ public class BaseClass {
 	}
 
 	public static LocalDate locatDate(){
-		LocalDate dt = LocalDate.from(ZonedDateTime.now());
+		ZoneId zoneId = ZoneId.of("America/Los_Angeles");
+		LocalDate dt = LocalDate.from(ZonedDateTime.now(zoneId));
 		return dt;
 
 	}
@@ -54,7 +56,7 @@ public class BaseClass {
 		}
 		catch(AssertionError e)
 		{
-			scn.write("Assertion error occured due to US time difference");
+			scn.write("Assertion error occured due to US time difference ,expected date"+ date);
 		}
 	}
 	public static String checkWeekends(LocalDate date) throws ParseException {
