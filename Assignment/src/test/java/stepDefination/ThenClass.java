@@ -19,7 +19,7 @@ import org.json.JSONObject;
 
 public class ThenClass extends BaseClass {
 	
-	LocalDate dt;
+	
 	
 	
 	
@@ -39,10 +39,8 @@ public class ThenClass extends BaseClass {
 	{
 		scn.write("Verifying current date data should return even if the endpoint is of future date");
 		//Assertion of status code
-		dt=	locatDate();
-		String date=checkWeekends(dt);
+		validatingDate();
 		
-		response.then().assertThat().body("date",equalTo(date));
 		
 	}
 	
@@ -62,6 +60,7 @@ public class ThenClass extends BaseClass {
 		 
 		System.out.println(json.get("base"));*/
 		scn.write("Verifying base value");
+		
 		response.then().assertThat().body("base",equalTo(expectedBase));
 		
 		

@@ -13,15 +13,21 @@ public class Base extends BaseClass
 	
 	
 
-	public Base()
-	{
-		
-	}
+
 
 	@Before
-	public void SetUp(Scenario s) {
+	public void SetUp(Scenario s) 
+	{
 		scn =s ;
 	}
 	
 	
+	@After
+	public void CleanUp() {
+		reqSpec=null;
+		response=null;
+	}
+	
+	
+
 }

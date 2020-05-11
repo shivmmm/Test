@@ -24,7 +24,7 @@ public class WhenClass extends BaseClass {
 	@When("Hit the API with end point as {string}")
 	public void hitAPI(String endPoint)
 	{
-		scn.write("Hiting API with specific endpoint "+endPoint);
+		scn.write("Hiting API with specific endpoint "+endPoint +" and getting reponse");
 		//Getting reponse throgh get method
 		response=reqSpec.get(endPoint);
 		

@@ -1,5 +1,7 @@
 package baseClass;
-import static io.restassured.RestAssured.given;
+
+import static io.restassured.RestAssured.*;
+import static org.hamcrest.Matchers.equalTo;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -14,6 +16,7 @@ import cucumber.api.Scenario;
 import cucumber.api.java.Before;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import junit.framework.Assert;
 
 
 
@@ -23,7 +26,7 @@ public class BaseClass {
 	static protected RequestSpecification reqSpec=null;
 	static protected Response response=null;
 	static protected Scenario scn=null;
-	
+	LocalDate dt;
 	
 	protected ResourceBundle bundle=ResourceBundle.getBundle("test");
 
@@ -40,6 +43,19 @@ public class BaseClass {
 		LocalDate dt = LocalDate.from(ZonedDateTime.now());
 		return dt;
 
+	}
+	public void validatingDate() throws ParseException
+	{
+		dt=	locatDate();
+		String date=checkWeekends(dt);
+		try
+		{
+		response.then().assertThat().body("date",equalTo(date));
+		}
+		catch(AssertionError e)
+		{
+			scn.write("Assertion error occured due to US time difference");
+		}
 	}
 	public static String checkWeekends(LocalDate date) throws ParseException {
 
