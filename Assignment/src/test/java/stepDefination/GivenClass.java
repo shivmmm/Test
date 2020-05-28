@@ -3,15 +3,14 @@ package stepDefination;
 
 
 import baseClass.BaseClass;
-
 import cucumber.api.java.en.Given;
 
 
-public class GivenClasss extends BaseClass {
+public class GivenClass extends BaseClass {
 	
 	
 	
-	
+	//all given will come in this class 
 	
 	
 	@Given("Foreign Exchange Rates API is up and running")

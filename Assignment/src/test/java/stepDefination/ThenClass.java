@@ -19,11 +19,7 @@ import org.json.JSONObject;
 
 public class ThenClass extends BaseClass {
 	
-	
-	
-	
-	
-	
+	//All Then And will come there
 	
 	@Then("API should return the status code as {int}")
 	public void getStatusCode(Integer expected)
